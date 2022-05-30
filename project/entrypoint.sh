@@ -2,8 +2,9 @@
 set -e
 
 if [ "$1" = 'run' ]; then
-#    php artisan migrate --force
-#    php artisan passport:safe_install
+    cp .env.example .env
+    php aritsan key:generate
+    php artisan migrate --force
     composer dump-autoload --optimize
     php artisan cache:clear
     php artisan config:clear
