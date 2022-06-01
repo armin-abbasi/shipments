@@ -17,6 +17,8 @@ class Route extends Model
         'type',
     ];
 
+    protected $hidden = ['pivot'];
+
     public function shipments()
     {
         return $this->belongsToMany(Shipment::class);
