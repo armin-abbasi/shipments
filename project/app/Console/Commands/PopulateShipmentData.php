@@ -57,10 +57,10 @@ class PopulateShipmentData extends Command
 
         foreach ($shipmentsArray as $shipmentObject) {
             $shipment = Shipment::query()->create([
-                'id' => $shipmentObject['id'],
-                'distance' => $shipmentObject['distance'],
-                'time' => $shipmentObject['time'],
-                'price' => $this->processPriceValue($shipmentObject['distance']),
+                'id'         => $shipmentObject['id'],
+                'distance'   => $shipmentObject['distance'],
+                'time'       => $shipmentObject['time'],
+                'price'      => $this->processPriceValue($shipmentObject['distance']),
                 'company_id' => $this->getCompanyID($shipmentObject['company']),
                 'carrier_id' => $this->getCarrierID($shipmentObject['carrier']),
             ]);
@@ -68,19 +68,19 @@ class PopulateShipmentData extends Command
             list($startRoute, $endRoute) = $shipmentObject['route'];
 
             $startRecord = Route::query()->create([
-                'stop_id' => $startRoute['stop_id'],
+                'stop_id'  => $startRoute['stop_id'],
                 'postcode' => $startRoute['postcode'],
-                'city' => $startRoute['city'],
-                'country' => $startRoute['country'],
-                'type' => 'start',
+                'city'     => $startRoute['city'],
+                'country'  => $startRoute['country'],
+                'type'     => 'start',
             ]);
 
             $endRecord = Route::query()->create([
-                'stop_id' => $endRoute['stop_id'],
+                'stop_id'  => $endRoute['stop_id'],
                 'postcode' => $endRoute['postcode'],
-                'city' => $endRoute['city'],
-                'country' => $endRoute['country'],
-                'type' => 'end',
+                'city'     => $endRoute['city'],
+                'country'  => $endRoute['country'],
+                'type'     => 'end',
             ]);
 
             $shipment->routes()->attach($startRecord->id);
@@ -99,7 +99,7 @@ class PopulateShipmentData extends Command
         $company = Company::query()->create(
             [
                 'email' => $companyObject['email'],
-                'name' => $companyObject['name'],
+                'name'  => $companyObject['name'],
             ]
         );
 
@@ -117,7 +117,7 @@ class PopulateShipmentData extends Command
         $carrier = Carrier::query()->create(
             [
                 'email' => $carrierObject['email'],
-                'name' => $carrierObject['name'],
+                'name'  => $carrierObject['name'],
             ]
         );
 
