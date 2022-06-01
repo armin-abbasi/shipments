@@ -8,6 +8,7 @@ if [ "$1" = 'run' ]; then
     composer dump-autoload --optimize
     php artisan cache:clear
     php artisan config:clear
+    php artisan shipments:store
     php-fpm
 fi
 
