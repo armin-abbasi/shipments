@@ -17,7 +17,7 @@ class CreateShipmentsTable extends Migration
             $table->id();
             $table->integer('distance');
             $table->smallInteger('time');
-            $table->integer('price')->nullable();
+            $table->unsignedDecimal('price', 9, 2)->nullable();
             $table->unsignedBigInteger('company_id');
             $table->unsignedBigInteger('carrier_id');
             $table->timestamps();
