@@ -14,6 +14,11 @@ Run the unit tests by executing this command inside the `shpmnt_app` docker serv
 phpunit tests/Unit/Services
 ```
 
+## Documentation
+
+Open API documentation is available in `swagger.yml` file in the root of the project.
+You can also [visit online](https://app.swaggerhub.com/apis/red7626/Shipment/0.1#/default/get_api_v1_carriers__id__shipments).
+
 ### Developer Note
 
 * In order to ease the process of project setup I intentionally removed `.env` files from `.gitignore`.
