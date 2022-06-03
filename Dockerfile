@@ -1,10 +1,3 @@
-FROM composer as VENDOR
-
-COPY ./project/composer.* /app/
-COPY ./project/database /app/database
-
-RUN composer install --no-ansi --ignore-platform-reqs --no-interaction --no-progress --no-scripts --optimize-autoloader
-
 FROM php:7.4-fpm
 
 # Install dependencies
@@ -83,7 +76,6 @@ RUN sed -i 's/\r//' /root/aliases.sh && \
 COPY ./php/local.ini /usr/local/etc/php/conf.d/local.ini
 COPY ./project/ /var/www/
 COPY ./project/.env /var/www/.env
-COPY --from=VENDOR /app/vendor /var/www/vendor
 
 RUN chown -R www:www /var/www
 RUN chmod +x /var/www/entrypoint.sh
