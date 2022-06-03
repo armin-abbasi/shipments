@@ -44,8 +44,10 @@ class ShipmentService
      */
     public function insertShipments(array $shipmentObject): void
     {
+        $shipmentID = $shipmentObject['id'];
+
         $this->shipmentRepo->create([
-            'id'         => $shipmentObject['id'],
+            'id'         => $shipmentID,
             'distance'   => $shipmentObject['distance'],
             'time'       => $shipmentObject['time'],
             'price'      => $this->processPriceValue($shipmentObject['distance']),
@@ -55,8 +57,8 @@ class ShipmentService
 
         list($startRouteID, $endRouteID) = $this->createRoute($shipmentObject);
 
-        $this->shipmentRepo->attachRoute($startRouteID);
-        $this->shipmentRepo->attachRoute($endRouteID);
+        $this->shipmentRepo->attachRoute($shipmentID, $startRouteID);
+        $this->shipmentRepo->attachRoute($shipmentID, $endRouteID);
     }
 
     /**
