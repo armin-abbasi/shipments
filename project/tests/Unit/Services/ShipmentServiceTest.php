@@ -89,14 +89,14 @@ class ShipmentServiceTest extends TestCase
                         'city'     => $startRoute['city'],
                         'country'  => $startRoute['country'],
                         'type'     => 'start',
-                    ])], [
-                        $this->equalTo([
-                            'stop_id'  => $endRoute['stop_id'],
-                            'postcode' => $endRoute['postcode'],
-                            'city'     => $endRoute['city'],
-                            'country'  => $endRoute['country'],
-                            'type'     => 'end',
-                        ])]
+                    ])],
+                    [$this->equalTo([
+                        'stop_id'  => $endRoute['stop_id'],
+                        'postcode' => $endRoute['postcode'],
+                        'city'     => $endRoute['city'],
+                        'country'  => $endRoute['country'],
+                        'type'     => 'end',
+                    ])]
                 )
                 ->willReturnOnConsecutiveCalls(
                     ['id' => ++$startRouteID],
