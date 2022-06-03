@@ -1,6 +1,6 @@
 ## Setup
 
-After cloning the project run `docker-compose up --build -d`.
+After cloning the project run `docker-compose up --build`.
 <br>
 it might take the app several minutes to boot up, specially since a lot of data processing will take place in order to 
 insert data from the large `json` file to the database.
