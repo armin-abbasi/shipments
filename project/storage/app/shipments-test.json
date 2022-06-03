@@ -1,0 +1,29 @@
+[
+    {
+        "id": 69339,
+        "distance": 423021,
+        "time": 4,
+        "company": {
+            "name": "Jose Rowe",
+            "email": "antoinette40@pfannerstill.com"
+        },
+        "carrier": {
+            "name": "Susanna Conroy",
+            "email": "rosendo86@lynch.com"
+        },
+        "route": [
+            {
+                "stop_id": 916510,
+                "postcode": "6120",
+                "city": "Halle",
+                "country": "DE"
+            },
+            {
+                "stop_id": 656742,
+                "postcode": "55743",
+                "city": "Gerichtsmannsm\u00fchle",
+                "country": "DE"
+            }
+        ]
+    }
+]
