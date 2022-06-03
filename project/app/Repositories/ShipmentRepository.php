@@ -116,10 +116,11 @@ class ShipmentRepository extends BaseRepository implements ShipmentRepositoryInt
     }
 
     /**
+     * @param int $shipmentID
      * @param int $routeID
      */
-    public function attachRoute(int $routeID): void
+    public function attachRoute(int $shipmentID, int $routeID): void
     {
-        $this->model->routes()->attach($routeID);
+        $this->model->findOrFail($shipmentID)->routes()->attach($routeID);
     }
 }

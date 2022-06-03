@@ -16,5 +16,5 @@ interface ShipmentRepositoryInterface
 
     public function getRouteShipments(int $routeID): array;
 
-    public function attachRoute(int $routeID): void;
+    public function attachRoute(int $shipmentID, int $routeID): void;
 }
