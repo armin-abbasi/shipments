@@ -15,7 +15,22 @@ class BaseRepository
     protected int $page = 1;
     protected int $perPage = 10;
 
-    public function paginate(array $params): array
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function create(array $data): array
+    {
+        return $this->model
+            ->create($data)
+            ->toArray();
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     */
+    protected function paginate(array $params): array
     {
         $page = $params['page'] ?? $this->page;
         $perPage = $params['per_page'] ?? $this->perPage;

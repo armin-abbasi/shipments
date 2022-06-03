@@ -7,8 +7,9 @@ use App\Models\Company;
 use App\Models\Shipment;
 use App\Repositories\Base\BaseRepository;
 use Illuminate\Database\Eloquent\Builder;
+use App\Interfaces\Repositories\ShipmentRepositoryInterface;
 
-class ShipmentRepository extends BaseRepository
+class ShipmentRepository extends BaseRepository implements ShipmentRepositoryInterface
 {
     const ALL_RELATIONS = [
         'carrier:id,name,email',
@@ -112,5 +113,13 @@ class ShipmentRepository extends BaseRepository
             ->whereHas('routes', function (Builder $query) use ($routeID) {
                 return $query->where('id', $routeID);
             })->get()->toArray();
+    }
+
+    /**
+     * @param int $routeID
+     */
+    public function attachRoute(int $routeID): void
+    {
+        $this->model->routes()->attach($routeID);
     }
 }
