@@ -23,3 +23,4 @@ You can also [visit online](https://app.swaggerhub.com/apis/red7626/Shipment/0.1
 
 * In order to ease the process of project setup I intentionally removed `.env` files from `.gitignore`.
 * The database structure is inside `database.sql` file at the root of the project.
+* I've tried to deploy the app on a cloud base platform, unfortunately due to political reasons none of them provide services for my region.    
